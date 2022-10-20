@@ -79,14 +79,14 @@ const char *direcaoMenorCaminho(int *vet,int *dir){
 }
 
 int leComando(){
-	char resp = ' ';
-	printf("Quer continuar? S/N ");
+	int resp = 0;
+	printf("Quer continuar? (1 - Sim / 2 - Não) \n");
 	scanf("%d",&resp);
-	if (resp == 'S') {
-		return true;
+	if (resp == 1) {
+		return 1;
 	}
 	else {
-		return false;
+		return 0;
 	}
 }
 
@@ -95,7 +95,7 @@ int dirige(int *v,int maxv){
 	int *vetorMov = v;
 	int posAtualVetor = 0;
 	int dirigindo = 1;		
-	while(dirigindo){
+	while(dirigindo == 1){
 		for (int i = 0; i < 4; i++)	{
 			int medida = leituraSensor();/// .. Chame a função de de leitura da medida para a "Direita"
 			medida = converteSensor(medida,0,830);
@@ -107,6 +107,8 @@ int dirige(int *v,int maxv){
 		// ................
 		///////////////////////////////////////////////////////////////////////////
 		dirigindo = leComando();		
+
+
 	}
 	return posAtualVetor;
 }
