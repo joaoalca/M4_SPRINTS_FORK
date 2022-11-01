@@ -41,7 +41,7 @@ int convertSensor(){
       Serial.println(sensor);
 
       int valorMin = 39;
-      int valorMax = 4089;
+      int valorMax = 4095;
       int div = (valorMax - valorMin)/15;
       int bin =  sensor/div;
       sound[loc] = bin;
@@ -61,7 +61,7 @@ int convertSensor(){
   }
 
 void buzzin(int i){
-  int tones[15] = {100,150,200,554, 622, 698, 740, 784, 831, 880, 932, 988, 1047, 1245, 1976};
+  int tones[16] = {100,150,200,554, 622, 698, 740, 784, 831, 880, 932, 988, 1047, 1245, 1333, 1976};
   //Serial.println(tones[i]);
   tone(buzz,tones[i],500);
   delay(500);
