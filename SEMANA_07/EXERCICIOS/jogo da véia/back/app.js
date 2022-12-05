@@ -35,7 +35,9 @@ app.get('/var', (req, res) => {
 app.post('/var',(req,res) => {
     const { resp } = req.body;
     result = resp;
-
+    res.status(200).json({
+        message: "Ok!"
+    })
 })
 
 app.listen(PORT,() => {
